@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Good Bye') {
             steps {
-                echo 'Good Bye'
+                sh 'docker images -a'
             }
         }
         // stage('Good Bye') {
