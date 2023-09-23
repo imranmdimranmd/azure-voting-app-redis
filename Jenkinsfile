@@ -13,7 +13,7 @@ pipeline {
                     cd azure-vote
                     ls
                     pwd
-                    docker build -t imran393/test:${env.BUILD_ID}
+                    docker build -t test
                 """
             }
         }
