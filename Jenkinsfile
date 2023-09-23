@@ -11,6 +11,8 @@ pipeline {
             steps {
                 sh """
                     cd azure-vote
+                    ls
+                    pwd
                     docker build -t imran393/test:${env.BUILD_ID}
                 """
             }
