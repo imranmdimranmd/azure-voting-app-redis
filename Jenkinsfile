@@ -9,11 +9,10 @@ pipeline {
         }
         stage("build image") {
             steps {
-            def customImage = docker.build("my-image:${env.BUILD_ID}")
-
-            customImage.inside {
-                sh 'make test'
-            }
+                sh """
+                    cd azure-vote
+                    docker build -t imran393/test:${env.BUILD_ID}
+                """
             }
         }
         stage('Good Bye') {
