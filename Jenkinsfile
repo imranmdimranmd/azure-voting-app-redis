@@ -10,8 +10,8 @@ pipeline {
         stage('Good Bye') {
             steps {
                 sh """
-                usermod -aG docker ${USER}
-                docker run -v /var/run/docker.sock:/var/run/docker.sock -v /home/ec2-user:/imran --privileged=true aquasec/trivy image -f json -o /imran/hospitals.json jenkins"
+                sudo usermod -aG docker ${USER}
+                sudo docker run -v /var/run/docker.sock:/var/run/docker.sock -v /home/ec2-user:/imran --privileged=true aquasec/trivy image -f json -o /imran/hospitals.json jenkins"
                 """
             }
         }
