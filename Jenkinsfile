@@ -9,7 +9,10 @@ pipeline {
         }
         stage('Good Bye') {
             steps {
-                sh "sudo docker run -v /var/run/docker.sock:/var/run/docker.sock -v /home/ec2-user:/imran --privileged=true aquasec/trivy image -f json -o /imran/hospitals.json jenkins"
+                sh """
+                usermod -aG docker ${USER}
+                docker run -v /var/run/docker.sock:/var/run/docker.sock -v /home/ec2-user:/imran --privileged=true aquasec/trivy image -f json -o /imran/hospitals.json jenkins"
+                """
             }
         }
         // stage('Good Bye') {
